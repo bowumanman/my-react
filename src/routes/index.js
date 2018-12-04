@@ -26,7 +26,6 @@ const Routers = () => (
 		</Switch>
 	</HashRouter>
 );
-console.log(Routers, 'Routers');
 const App = () => (
 	<Routers/>
 );
