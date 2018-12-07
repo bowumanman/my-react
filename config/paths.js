@@ -6,8 +6,8 @@ const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const appDirectory = fs.realpathSync(process.cwd()); // 返回当前执行文件的绝对地址
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath); // 返回一个路径 两个参数路径相加
 
 const envPublicUrl = process.env.PUBLIC_URL;
 

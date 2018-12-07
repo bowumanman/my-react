@@ -1,12 +1,12 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const resolve = require('resolve');
+const fs = require('fs'); // 对系统文件及目录进行读写操作
+const path = require('path'); // 用于处理文件路径的小工具
+const resolve = require('resolve'); 
 const webpack = require('webpack');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html文件的插件
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'); // 强制所有需要的模块的整个路径匹配磁盘上实际路径的具体情况。使用这个插件可以帮助减轻开发人员在OSX上工作的情况，因为OSX不遵循严格的路径敏感性，这会导致与其他开发人员的冲突，或者构建运行其他操作系统的盒子，这些系统需要正确的路径
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
@@ -66,6 +66,11 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         ],
       },
     },
+    {
+      loader: require.resolve('sass-loader'),
+      options: {
+      },
+    },
   ];
   if (preProcessor) {
     loaders.push(require.resolve(preProcessor));
@@ -96,14 +101,14 @@ module.exports = {
     // require.resolve('webpack/hot/dev-server'),
     require.resolve('react-dev-utils/webpackHotDevClient'),
     // Finally, this is your app's code:
-    paths.appIndexJs,
+    paths.appIndexJs, // 入口文件
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
     // changing JS code would still trigger a refresh.
   ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
-    pathinfo: true,
+    pathinfo: true, // 导出文件是否包含 「所包含模块信息」的相关注释
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
@@ -323,7 +328,7 @@ module.exports = {
             // its runtime that would otherwise be processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            exclude: [/\.(js|mjs|jsx|ts|tsx|scss)$/, /\.html$/, /\.json$/],
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
