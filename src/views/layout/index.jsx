@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import Routes from '../../routes';
 import { Layout } from 'antd';
-const styles = require('./index.scss');
-const { Header, Content, Footer, Sider } = Layout;
+import './index.scss';
+import styles from './index.1.scss';
+// const { Header, Content, Footer, Sider } = Layout;
+const styless = require('./index.2.scss');
 class LayoutContainer extends Component {
   render() {
-    console.log(styles, 'style');
+    console.log(styles, 'styles');
+    console.log(styless, 'styless');
     return (
-      <Layout className={styles.layout}>
-        <Sider><div className={styles.aa}>Sider</div></Sider>
+      <Layout>
+        {/* <Sider><div className="a">Sider</div></Sider>
         <Layout>
           <Header>Header</Header>
-          <Content>
+          <Content> */}
+            <div className={`${styles.a} item`}></div>
+            <div className={`${styless.a} item`}></div>
+            <div className={`${styles.a} item`}></div>
             <Routes />
-          </Content>
+          {/* </Content>
           <Footer>Footer</Footer>
-        </Layout>
+        </Layout> */}
       </Layout>
     );
   }

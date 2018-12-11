@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs'); // 对系统文件及目录进行读写操作
 const path = require('path'); // 用于处理文件路径的小工具
@@ -17,7 +17,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -280,7 +279,7 @@ module.exports = {
           // By default we support CSS Modules with the extension .module.css
           {
             test: cssRegex,
-            exclude: cssModuleRegex,
+            // exclude: cssModuleRegex,
             use: getStyleLoaders({
               importLoaders: 1,
             }),
@@ -291,7 +290,7 @@ module.exports = {
             test: cssModuleRegex,
             use: getStyleLoaders({
               importLoaders: 1,
-              modules: true,
+              modules: true, // 开启 css-module
               getLocalIdent: getCSSModuleLocalIdent,
             }),
           },
@@ -302,8 +301,13 @@ module.exports = {
           // extensions .module.scss or .module.sass
           {
             test: sassRegex,
-            exclude: sassModuleRegex,
-            use: getStyleLoaders({ importLoaders: 2 }, 'sass-loader'),
+            // exclude: sassModuleRegex,
+            use: getStyleLoaders({
+                importLoaders: 2,
+                modules: true, // 开启 css-module
+                localIdentName: '[name]__[local]-[hash:base64:5]' // 开启 css-module sass样式名最处理
+              },
+            'sass-loader'),
           },
           // Adds support for CSS Modules, but using SASS
           // using the extension .module.scss or .module.sass
