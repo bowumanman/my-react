@@ -1,8 +1,9 @@
 import React from 'react';
+const style = require('./index.scss');
 class Page extends React.Component{
 	render() {
 		return (
-			<div>this is page</div>
+			<div className={style.item}>this is page</div>
 		)
 	}
 }

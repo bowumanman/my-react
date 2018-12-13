@@ -1,3 +1,8 @@
 body{
     background:#f9f9f9;
 }
+:global{
+    .item{
+        background:pink;
+    }
+}
