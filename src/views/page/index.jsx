@@ -4,7 +4,7 @@ class Page extends React.Component{
 	render() {
 		return (
 			<div className={style.item}>this is page</div>
-		)
+		);
 	}
 }
 export default Page;

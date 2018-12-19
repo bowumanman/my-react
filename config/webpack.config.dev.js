@@ -191,12 +191,12 @@ module.exports = {
             options: {
               formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve('eslint'),
-              
             },
             loader: require.resolve('eslint-loader'),
           },
         ],
         include: paths.appSrc,
+        exclude: paths.serviceWorkerPath
       },
       {
         // "oneOf" will traverse all following loaders until one will

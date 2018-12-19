@@ -7,8 +7,8 @@ class Page extends React.Component{
 	changeName = (e) => {
 		this.setState({
 			name: e.target.value
-		})
-	}
+		});
+	};
 	render() {
 		const { name } = this.state;
 		return (
@@ -17,7 +17,7 @@ class Page extends React.Component{
 				<Child name={name} />
 			</div>
 
-		)
+		);
 	}
 }
 export default Page;
