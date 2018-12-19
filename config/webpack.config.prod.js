@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -266,6 +266,7 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+        exclude: paths.serviceWorkerPath
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -379,6 +380,7 @@ module.exports = {
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
+                modules: true,
                 sourceMap: shouldUseSourceMap,
               },
               'sass-loader'

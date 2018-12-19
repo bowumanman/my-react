@@ -9,8 +9,15 @@ module.exports = {
         "react/jsx-no-bind": 1,          // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去
         "react/sort-comp": 1,            // 按照具体规范的React.createClass 的生命周期函数书写代码
         "react/jsx-pascal-case": 1,        // React模块名使用帕斯卡命名，实例使用骆驼式命名
+        "jsx-a11y/alt-text": [ 0, {
+            "elements": [ "img", "object", "area", "input[type=\"image\"]" ],
+            "img": ["Image"],
+            "object": ["Object"],
+            "area": ["Area"],
+            "input[type=\"image\"]": ["InputImage"]
+        }],
         "no-console": 1,//禁止使用console
-        "no-alert": 0,//禁止使用alert confirm prompt
+        "no-alert": 2,//禁止使用alert confirm prompt
         "no-class-assign": 2,//禁止给类赋值
         "no-const-assign": 2,//禁止修改const声明的变量
         "no-dupe-keys": 2,//在创建对象字面量时不允许键重复 {a:1,a:1}

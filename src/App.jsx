@@ -8,14 +8,14 @@ import Login from './views/login';
 const Routers = () => (
 	<HashRouter>
 		<Switch>
-			<Route path="/login" component={Login} />
-			<Route path="/register" component={Login} />
+			<Route key="login" path="/login" component={Login} />
+			<Route key="register" path="/register" component={Login} />
 			{
 				routes.map((item, index) => {
-					return <Layout><Route {...item} key={index} /></Layout>;
+					return <Layout key={index}><Route {...item} /></Layout>;
 				})
 			}
-			<Redirect from="*" to="/login" />
+			<Redirect key="*" from="*" to="/login" />
 		</Switch>
 	</HashRouter>
 );

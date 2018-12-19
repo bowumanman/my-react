@@ -1,0 +1,33 @@
+:global{
+    .align-center{
+        text-align:center;
+    }
+    .align-right{
+        text-align:right;
+    }
+    .align-left{
+        text-align:left;
+    }
+    .pull-left{
+        float:left;
+    }
+    .pull-right{
+        float:right;
+    }
+    .clearfix:after,
+    .clearfix:before{
+        content: '';
+        display:table;
+        clear:both;
+    }
+    .inline-block{
+        display:inline-block;
+    }
+    .m-r-10{
+        margin-right:10px;
+    }
+    .m-l-10{
+        margin-left:10px;
+    }
+
+}

@@ -7,17 +7,13 @@ class LayoutContainer extends Component {
     list: [ 12, 3, 4, 5 ]
   }
   render() {
-    const {name} =this.state;
-    if (name==='1') {
-      return '123';
-    }
     return (
       <Layout>
         <Sider>Sider</Sider>
         <Layout>
           <Header>Header</Header>
           <Content>
-              {this.children} {name}
+              {this.children}
           </Content>
           <Footer>Footer</Footer>
         </Layout>
