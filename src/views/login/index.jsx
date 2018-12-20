@@ -10,6 +10,7 @@ class LoaginForm extends React.Component{
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 			message.success('登录成功~');
+			this.props.history.push('/home');
 		  }
 		});
 	}
