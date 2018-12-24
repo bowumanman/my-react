@@ -1,0 +1,26 @@
+:global{
+    .layout-top{
+        .ant-layout-header{
+            padding-left:0;
+            height:46px;
+            line-height:46px;
+            background:#001529;
+        }
+        .ant-menu{
+            display:inline-block;
+            vertical-align: top;
+        }
+    }
+    .ant-menu-item > a {
+        display:inline-block;
+    }
+    .ant-layout-sider{
+       min-height:100vh;
+       overflow-y:auto;
+       box-shadow: 0 1px 4px rgba(0,0,0,.3);
+    }
+    .ant-layout-header{
+        background:#fff;
+        box-shadow: 1px 0 4px rgba(0,0,0,.3);
+    }
+}

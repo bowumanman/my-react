@@ -1,5 +1,4 @@
 import React from 'react';
-import Child from '../../component/index';
 class Page extends React.Component{
 	state = {
 		name: ''
@@ -14,7 +13,6 @@ class Page extends React.Component{
 		return (
 			<div>
 				<input value={name} onChange={this.changeName} />
-				<Child name={name} />
 			</div>
 
 		);

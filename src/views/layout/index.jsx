@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
+import { Head, Menu } from '../../component';
 const { Header, Content, Footer, Sider } = Layout;
+// const styles = require('./index.scss');
 class LayoutContainer extends Component {
   state={
-    name: '1',
-    list: [ 12, 3, 4, 5 ]
+    collapsed: false,
+    menuPosition: 'left' // top  left
+  }
+  onChangeOpen = (collapsed) => {
+    this.setState({
+      collapsed: !collapsed
+    });
   }
   render() {
+    const { collapsed, menuPosition } = this.state;
     return (
-      <Layout>
-        <Sider>Sider</Sider>
+      <Layout className={menuPosition === 'top' ? 'layout-top' : ''}>
+          {
+            menuPosition === 'left' ?
+              <Sider 
+                width="200px"
+                trigger={null}
+                collapsible 
+                collapsed={collapsed}
+              >
+                <Menu mode="inline" />
+              </Sider> 
+            :
+            null 
+          }
         <Layout>
-          <Header>Header</Header>
+          <Header>
+            <Head onChangeOpen={this.onChangeOpen} menuPosition={menuPosition}>
+              { menuPosition === 'top' ? <Menu mode="horizontal" /> : null }
+            </Head>
+          </Header>
           <Content>
               {this.children}
           </Content>

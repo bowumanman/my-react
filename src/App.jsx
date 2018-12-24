@@ -5,17 +5,20 @@ import './assets/css/index.scss';
 import Layout from './views/layout';
 import routes from './routes';
 import Login from './views/login';
+import Register from './views/register';
 const Routers = () => (
 	<HashRouter>
 		<Switch>
-			<Route path="/login" component={Login} />
-			<Route path="/register" component={Login} />
-			{
-				routes.map((item, index) => {
-					return <Layout key={index}><Route {...item} /></Layout>;
-				})
-			}
-			<Redirect path="/" to={{pathname: '/login'}} />
+			<Route path="/login" component={Login} exact />
+			<Route path="/register" component={Register} />
+			<Layout>
+				{
+					routes.map((item, index) => {
+						return <Route {...item} key={index} />;
+					})
+				}
+			</Layout>
+			<Redirect to="/login" />
 		</Switch>
 	</HashRouter>
 );
