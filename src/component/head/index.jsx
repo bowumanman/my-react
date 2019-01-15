@@ -14,13 +14,13 @@ export default class Head extends React.Component{
 	}
 	render() {
 		const { open } = this.state;
-		const { menuPosition } = this.props;
+		const { menuPosition, isMobel, visible } = this.props;
 		if (menuPosition === 'top') {
 			return this.props.children;
 		}
 		return (
 			<div className={styles.head} >
-				<Icon type={open ? 'menu-fold' : 'menu-unfold'} onClick={this.changeOpen} className={styles.control} />
+				<Icon type={isMobel ? (visible ? 'menu-fold' : 'menu-unfold') : open ? 'menu-fold' : 'menu-unfold'} onClick={this.changeOpen} className={styles.control} />
 			</div>
 		);
 	}

@@ -12,7 +12,7 @@ class Page extends React.Component{
 		const { name } = this.state;
 		return (
 			<div>
-				<input value={name} onChange={this.changeName} />
+				<input value={name} onChange={this.changeName} /> home
 			</div>
 
 		);

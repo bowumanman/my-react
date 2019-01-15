@@ -6,11 +6,15 @@ const FormItem = Form.Item;
 class LoaginForm extends React.Component{
 	state = {
 	};
+	componentDidMount() {
+		localStorage.removeItem('Us');
+	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 			message.success('登录成功~');
+			localStorage.setItem('Us', values.userName);
 			this.props.history.push('/home');
 		  }
 		});

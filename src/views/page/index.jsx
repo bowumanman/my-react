@@ -3,7 +3,7 @@ const style = require('./index.scss');
 class Page extends React.Component{
 	render() {
 		return (
-			<div className={style.item}>this is page</div>
+			<div className={style.item}>this is {this.props.location.pathname}</div>
 		);
 	}
 }
