@@ -1,22 +1,33 @@
 import React from 'react';
-import { Form, Icon, Input, Button, message } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import Service from '@/service';
 const styles = require('./index.scss');
 const FormItem = Form.Item;
 class LoaginForm extends React.Component{
 	state = {
+		res: {}
 	};
 	componentDidMount() {
 		localStorage.removeItem('Us');
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.form.validateFields((err, values) => {
-		  if (!err) {
-			message.success('登录成功~');
-			localStorage.setItem('Us', values.userName);
-			this.props.history.push('/home');
-		  }
+		this.props.form.validateFields(async (err, values) => {
+			if (!err) {
+				const params = {
+					username: values.userName,
+					password: values.password
+				};
+				const res = await Service.login(params);
+				this.setState({
+					res
+				});
+				return;  
+				// message.success('登录成功~');
+				// localStorage.setItem('Us', values.userName);
+				// this.props.history.push('/home');
+			}
 		});
 	}
 	render() {
