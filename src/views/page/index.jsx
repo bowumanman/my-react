@@ -32,31 +32,7 @@ class Page extends React.Component{
 					<p><Button onClick={this.change}>点击加1</Button>当前点击数{this.name}</p>
 				</div>
 				<div className={style.item}>
-					<div className={style.t}>
-						<div className={style.y1} />
-						<div className={style.y2} />
-						<div className={style.z} />
-					</div>
-					<div className={style.t}>
-						<div className={style.y1} />
-						<div className={style.y2} />
-						<div className={style.z} />
-					</div>
-					<div className={style.t}>
-						<div className={style.y1} />
-						<div className={style.y2} />
-						<div className={style.z} />
-					</div>
-					<div className={style.t}>
-						<div className={style.y1} />
-						<div className={style.y2} />
-						<div className={style.z} />
-					</div>
-					<div className={style.t}>
-						<div className={style.y1} />
-						<div className={style.y2} />
-						<div className={style.z} />
-					</div>
+					<div className={style.t} />
 				</div>
 				<div className={style.item}>
 					<Paragraph ellipsis={{ rows: 3, expandable: true }}>
