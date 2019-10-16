@@ -4,3 +4,29 @@
 	background:#fff;
 	padding:10px;
 }
+.t{
+	position: relative;
+	min-height:120px;
+	width:150px;
+	display:inline-block;
+	transform: scale(0.2);
+}
+.y1, .y2 {
+	width:80px;
+	height:80px;
+	border-radius: 100px;
+	background:red;
+	position: absolute;
+}
+.z{
+	width:80px;
+	height:80px;
+	background:red;
+	position: absolute;
+	top:25px;
+	left:25px;
+	transform: rotate(45deg);
+}
+.y2{
+	left:50px;
+}
