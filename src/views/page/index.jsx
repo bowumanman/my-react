@@ -19,7 +19,7 @@ class Page extends React.Component{
 		this.props.userStore.changeUserName(e.target.value);
 	}
 	changeName = () => {
-		this.props.userStore.changeUserName('zhang sai');
+		this.props.userStore.changeUserName('li si');
 	}
 	render() {
 		const {userName} = this.props.userStore;
