@@ -48,6 +48,9 @@ class Page extends React.Component{
 						<span className={`${style.spanR} ${style.span}`} />
 					</div>
 				</div>
+				<div className={style.item}>
+					<h1>hello world</h1>
+				</div>
 			</div>
 		);
 	}
