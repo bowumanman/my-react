@@ -49,7 +49,7 @@ class Page extends React.Component{
 					</div>
 				</div>
 				<div className={style.item}>
-					<h1>hello world</h1>
+					<h1>hello world1</h1>
 				</div>
 			</div>
 		);
