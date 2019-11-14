@@ -11,6 +11,7 @@
 	position: absolute;
 	transform: rotate(-45deg) scale(.5);
 	position: relative;
+	display:inline-block;
 }
 .t::before, .t::after {
 	content: "";
@@ -26,4 +27,23 @@
 }
 .t::before{
 	top:-37px;
+}
+.span{
+	border:10px solid transparent;
+	width:0;
+	height:0;
+	margin-left:10px;
+	display:inline-block;
+}
+.spanT{
+	border-top-color:#666;
+}
+.spanB{
+	border-bottom-color:#666;
+}
+.spanL{
+	border-left-color:#666;
+}
+.spanR{
+	border-right-color:#666;
 }

@@ -33,26 +33,20 @@ class Page extends React.Component{
 				</div>
 				<div className={style.item}>
 					<div className={style.t} />
+					<span>Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+						Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
+						a design language for background applications, is refined by Ant UED Team.</span>
 				</div>
 				<div className={style.item}>
 					<Paragraph ellipsis={{ rows: 3, expandable: true }}>
-						Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-						Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-						a design language for background applications, is refined by Ant UED Team. Ant Design, a
-						design language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-						Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-						a design language for background applications, is refined by Ant UED Team. Ant Design, a
-						design language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-						Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-						a design language for background applications, is refined by Ant UED Team. Ant Design, a
-						design language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team. Ant Design, a design
-						language for background applications, is refined by Ant UED Team.
+					如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示，如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示，如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示，如下图222222，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示，如下图，再次进入审核页面时，审核下拉框默认显示当前的审核结果，请设计为再次进入审核页面时下拉框默认为“请选择”且有必填提示
 					</Paragraph>
+					<div className={style.item}>
+						<span className={`${style.spanT} ${style.span}`} />
+						<span className={`${style.spanB} ${style.span}`} />
+						<span className={`${style.spanL} ${style.span}`} />
+						<span className={`${style.spanR} ${style.span}`} />
+					</div>
 				</div>
 			</div>
 		);
