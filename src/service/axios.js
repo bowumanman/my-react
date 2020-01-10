@@ -1,15 +1,33 @@
 import axios from 'axios';
-import baseUrl from './base-url';
+import baseURL from './base-url';
 import { message } from 'antd';
-const ax = axios.create({ baseURL: baseUrl });
+import api from './common/api';
+import store from '@/store';
+import history from '@/routes/history';
+const ax = axios.create({ baseURL });
 ax.defaults.timeout = 5000;
 // 添加拦截器
 ax.interceptors.request.use(config => {
+    const token = store.baseStore.getToken();
+    if (!config.url.includes(api.API_LOGIN)) {
+        config.headers['X-Token'] = token;
+    }
     return config;
 });
 // 响应拦截器
 ax.interceptors.response.use(response => {
-    
+    const { data } = response;
+    if (response.status === 200 && data.resCode && data.resCode === '0') {
+        return data;
+    } else {
+        if (data.resCode === '-13') {
+            message.error(data.resMsg);
+            history.push('/login');
+            return;
+        }
+        message.error(data.resMsg);
+        return data;   
+    }
 }, err => {
     if (err && err.response) {
         let msg = '';

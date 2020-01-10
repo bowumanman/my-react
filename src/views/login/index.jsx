@@ -1,8 +1,12 @@
 import React from 'react';
 import { Icon, Input, Button, message, Form } from 'antd';
 import { Link } from 'react-router-dom';
-// import Service from '@/service';
+import Service from '@/service/common';
+// import { observable } from 'mobx';
+import { observer, inject } from 'mobx-react';
 const styles = require('./index.scss');
+@inject('baseStore')
+@observer
 class LoginForm extends React.Component{
 	state = {
 		res: {}
@@ -14,18 +18,20 @@ class LoginForm extends React.Component{
 		e.preventDefault();
 		this.props.form.validateFields(async (err, values) => {
 			if (!err) {
-				// const params = {
-				// 	username: values.userName,
-				// 	password: values.password
-				// };
-				// const res = await Service.login(params);
-				// this.setState({
-				// 	res
-				// });
-				// return;  
-				message.success('登录成功~');
-				localStorage.setItem('Us', values.userName);
-				this.props.history.push('/home');
+				const params = {
+					loginName: values.userName,
+					password: values.password
+				};
+				const {resCode, data} = await Service.login(params);
+				if (resCode === '0') {
+					message.success('登录成功~');
+					this.props.baseStore.setBaseUser(data);
+					this.props.history.push('/home');
+				}
+				// return;
+				
+				// localStorage.setItem('Us', values.userName);
+				// this.props.history.push('/home');
 			}
 		});
 	}

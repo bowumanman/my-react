@@ -2,7 +2,8 @@ const baseUrl = (type = process.env.NODE_ENV) => {
     let url = '';
     switch (type) {
         case 'development':
-            url = 'http://dev.cvsource.com.cn:9005';
+            url = 'http://192.168.2.239:7426';
+            // url = 'http://dev.cvsource.com.cn:9005';
             break;
         case 'test':    
             url = 'http://dev.cvsource.com.cn:9005';
@@ -12,6 +13,6 @@ const baseUrl = (type = process.env.NODE_ENV) => {
             break;    
         default: url = 'http://dev.cvsource.com.cn:9005';
     }
-    return url;
+    return url + '/shunde';
 };
 export default baseUrl();

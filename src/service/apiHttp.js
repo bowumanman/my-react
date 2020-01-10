@@ -2,11 +2,10 @@ import axios from './axios';
 import uriTemplates from 'uri-templates';
 
 export const HTTP_RES_CODE = '0';
-export const apiHttp = (urlParams, dataParams) => {
-    const urlData = Object.assign({}, urlParams);
+export const apiHttp = (methodApi, dataParams) => {
     const params = Object.assign({}, dataParams);
-    urlData.url = new uriTemplates(urlData.url).fill(params);
-    const config = Object.assign({ emulateJSON: false }, urlData);
+    methodApi.url = new uriTemplates(methodApi.url).fill(params);
+    const config = Object.assign({ emulateJSON: false }, methodApi);
     if (config.method.toLowerCase() === 'get') {
         config.params = Object.assign({}, dataParams);
     } else {
