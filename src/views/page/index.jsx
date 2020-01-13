@@ -1,26 +1,8 @@
 import React from 'react';
-import { observable } from 'mobx';
-import { observer, inject } from 'mobx-react';
 import { Input, Button, Typography } from 'antd';
 const style = require('./index.scss');
 const { Paragraph } = Typography;
-@inject('userStore')
-@observer
 class Page extends React.Component{
-	@observable name = 1;
-	@observable sex = '';
-	@observable arr = [1, 2, 3];
-	@observable obj1 = {name: 'jake'};
-	@observable obj2 = {name: 'jake'};
-	change = () => {
-		this.name = this.name + 1;
-	}
-	onInputName = (e) => {
-		this.props.userStore.changeUserName(e.target.value);
-	}
-	changeName = () => {
-		this.props.userStore.changeUserName('li si');
-	}
 	render() {
 		const {userName} = this.props.userStore;
 		return (

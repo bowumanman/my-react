@@ -1,18 +1,17 @@
 import axios from 'axios';
 import baseURL from './base-url';
 import { message } from 'antd';
-import api from './common/api';
-import store from '@/store';
+// import api from './common/api';
 import history from '@/routes/history';
 const ax = axios.create({ baseURL });
 ax.defaults.timeout = 5000;
 // 添加拦截器
 ax.interceptors.request.use(config => {
-    const token = store.baseStore.getToken();
-    if (!config.url.includes(api.API_LOGIN)) {
-        config.headers['X-Token'] = token;
-    }
-    return config;
+    // const token = store.baseStore.getToken();
+    // if (!config.url.includes(api.API_LOGIN)) {
+    //     config.headers['X-Token'] = token;
+    // }
+    // return config;
 });
 // 响应拦截器
 ax.interceptors.response.use(response => {

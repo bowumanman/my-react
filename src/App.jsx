@@ -7,12 +7,9 @@ import { Layout } from './component';
 import routes from './routes/routers';
 import Login from './views/login';
 import Register from './views/register';
-import { Provider } from 'mobx-react';
-import store from './store';
 
 const Us = localStorage.getItem('Us');
 const Routers = () => (
-	<Provider {...store}>
 		<HashRouter>
 			<Switch>
 				<Route path="/login" component={Login} exact />
@@ -32,7 +29,6 @@ const Routers = () => (
 				<Redirect to="/login" />
 			</Switch>
 		</HashRouter>
-	</Provider>
 );
 const App = () => (
 	<Routers />

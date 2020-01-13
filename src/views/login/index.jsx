@@ -2,11 +2,7 @@ import React from 'react';
 import { Icon, Input, Button, message, Form } from 'antd';
 import { Link } from 'react-router-dom';
 import Service from '@/service/common';
-// import { observable } from 'mobx';
-import { observer, inject } from 'mobx-react';
 const styles = require('./index.scss');
-@inject('baseStore')
-@observer
 class LoginForm extends React.Component{
 	state = {
 		res: {}
@@ -66,5 +62,4 @@ class LoginForm extends React.Component{
 		);
 	}
 }
-// const Login = Form.create({ name: 'login' })(LoginForm);
 export default Form.create()(LoginForm);
