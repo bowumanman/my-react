@@ -2,7 +2,7 @@ import axios from './axios';
 import uriTemplates from 'uri-templates';
 
 export const HTTP_RES_CODE = '0';
-export const apiHttp = (methodApi, dataParams) => {
+export const apiHttp = (methodApi, dataParams, urlParams) => {
     const params = Object.assign({}, dataParams);
     methodApi.url = new uriTemplates(methodApi.url).fill(params);
     const config = Object.assign({ emulateJSON: false }, methodApi);
@@ -10,6 +10,9 @@ export const apiHttp = (methodApi, dataParams) => {
         config.params = Object.assign({}, dataParams);
     } else {
         config.data = Object.assign({}, dataParams);
+    }
+    if (urlParams) {
+        config.params = Object.assign({}, urlParams);
     }
     return new Promise((resolve, reject) => {
         axios(config).then(res => {
