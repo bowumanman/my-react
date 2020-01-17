@@ -1,41 +1,19 @@
 import React from 'react';
-import { Route, HashRouter, Switch, Redirect } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './assets/css/index.scss';
-import { Layout } from './component';
-// import routes from './routes';
-import routes from './routes/routers';
-import Login from './views/login';
-import Register from './views/register';
+import {getAllRoute} from './routes/routers';
 import {Provider} from 'react-redux';
-import store from './store';
-import { Spin } from 'antd'; 
-
-const Us = localStorage.getItem('Us');
+import store, {persistor} from './store';
+import {PersistGate} from 'redux-persist/lib/integration/react'; // redux本地化处理
+import { Spin } from 'antd';
 const {globalLoading} = store.getState();
 const Routers = () => (
 	<Provider store={store}>
-	<Spin spinning={globalLoading} tip="加载中，请稍后...">
-		<HashRouter>
-			<Switch>
-				<Route path="/login" render={() => <Login />} exact />
-				<Route path="/register" component={Register} />
-				<Layout>
-					<Switch>
-						{
-							routes.map((item, index) => {
-								return <Route {...item} key={index} />;
-							})
-						}
-						{
-							Us ? <Redirect to="/home" /> : <Redirect to="/login" />
-						}
-					</Switch>
-				</Layout>
-				<Redirect to="/login" />
-			</Switch>
-		</HashRouter>
-	</Spin>	
+		<PersistGate persistor={persistor}>
+		<Spin spinning={globalLoading} tip="加载中，请稍后...">
+			{getAllRoute(store)}
+		</Spin>	
+		</PersistGate>
 	</Provider>	
 );
 const App = () => (

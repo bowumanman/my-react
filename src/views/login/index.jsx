@@ -12,7 +12,7 @@ class Login extends React.Component{
 		res: {}
 	};
 	componentDidMount() {
-		
+		this.props.deleteUserInfo();
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -78,6 +78,7 @@ const mapDispatchToProps = (dispatch) => {
 		showLoading: () => dispatch(action.showLoading()),
 		hideLoading: () => dispatch(action.hideLoading()),
 		setUserInfo: (userInfo) => dispatch(action.setUserInfo(userInfo)),
+		deleteUserInfo: (userInfo) => dispatch(action.deleteUserInfo(userInfo))
 	};
 };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

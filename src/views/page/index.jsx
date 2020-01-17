@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Button, Typography } from 'antd';
+import {withRouter} from 'react-router-dom';
 const style = require('./index.scss');
 const { Paragraph } = Typography;
 class Page extends React.Component{
@@ -36,4 +37,4 @@ class Page extends React.Component{
 		);
 	}
 }
-export default Page;
+export default withRouter(Page);

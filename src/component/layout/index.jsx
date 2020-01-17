@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Layout, Drawer } from 'antd';
 import { Head, Menu } from '../../component';
+import {getLayoutRouter} from '@/routes/routers';
+import store from '@/store';
 const { Header, Content, Footer, Sider } = Layout;
 // const styles = require('./index.scss');
 class LayoutContainer extends Component {
@@ -70,7 +72,7 @@ class LayoutContainer extends Component {
             </Head>
           </Header>
           <Content>
-              {this.props.children}
+            {getLayoutRouter(store)}
           </Content>
           <Footer>Footer</Footer>
         </Layout>

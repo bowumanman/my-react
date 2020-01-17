@@ -1,13 +1,13 @@
 import React from 'react';
 import homeService from '@/service/home';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 class Page extends React.Component{
 	state = {
 		name: ''
 	};
 	componentDidMount() {
-		// this.getData();
-		console.log(this.props);
+		this.getData();
 	}
 	getData = async () => {
 		await homeService.getData();
@@ -32,4 +32,4 @@ const mapStateToProps = (store) => {
 		store
 	};
 };
-export default connect(mapStateToProps)(Page);
+export default withRouter(connect(mapStateToProps)(Page));

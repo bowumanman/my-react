@@ -6,14 +6,12 @@ import history from '@/routes/history';
 import store from '../store';
 const ax = axios.create({ baseURL });
 ax.defaults.timeout = 5000;
-console.log(store.getState(), 'store');
 // 添加拦截器
 ax.interceptors.request.use(config => {
     const token = store.getState().userInfo.token;
-    console.log(token, 'token', store.getState());
-    // if (!config.url.includes(api.API_LOGIN)) {
-    //     config.headers['X-Token'] = token;
-    // }
+    if (!config.url.includes(api.API_LOGIN)) {
+        config.headers['X-Token'] = token;
+    }
     return config;
 });
 // 响应拦截器
