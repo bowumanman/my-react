@@ -6,12 +6,15 @@ const baseUrl = (type = process.env.NODE_ENV) => {
             // url = 'http://dev.cvsource.com.cn:9005';
             break;
         case 'test':    
-            url = 'http://dev.cvsource.com.cn:9005';
+            url = 'http://192.168.2.239:74261';
             break;
-        case 'production':    
-            url = 'http://dev.cvsource.com.cn:9005';
+        case 'release':    
+            url = 'http://192.168.2.239:74262';
             break;    
-        default: url = 'http://dev.cvsource.com.cn:9005';
+        case 'production':    
+            url = 'http://192.168.2.239:7426';
+            break;    
+        default: url = 'http://192.168.2.239:7426';
     }
     return url + '/shunde';
 };

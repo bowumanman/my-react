@@ -29,21 +29,21 @@ export default class Head extends React.Component{
 					onOpenChange={this.onOpenChange}
 				>
 					{
-					Routers.map((menu, index) => {
-						if (menu.child && menu.child.length > 0) { // 可展开
-						return (
-							menu.menu && <SubMenu key={menu.path} title={<span><Icon type={menu.icon} /><span>{menu.title}</span></span>}>
-							{
-								menu.child.map((sMenu, j) => {
-								return sMenu.menu && <Menu.Item key={sMenu.path}><Link to={sMenu.path}>{sMenu.title}</Link></Menu.Item>;
-								})
+						Routers.map((menu, index) => {
+							if (menu.child && menu.child.length > 0) { // 可展开
+							return (
+								menu.menu && <SubMenu key={menu.path} title={<span><Icon type={menu.icon} /><span>{menu.title}</span></span>}>
+								{
+									menu.child.map((sMenu, j) => {
+									return sMenu.menu && <Menu.Item key={sMenu.path}><Link to={sMenu.path}>{sMenu.title}</Link></Menu.Item>;
+									})
+								}
+								</SubMenu>
+							);
+							} else { // 不可展开
+								return menu.menu && <Menu.Item key={menu.path}><Icon type={menu.icon} /><span><Link to={menu.path}>{menu.title}</Link></span></Menu.Item>;
 							}
-							</SubMenu>
-						);
-						} else { // 不可展开
-						return menu.menu && <Menu.Item key={menu.path}><Icon type={menu.icon} /><span><Link to={menu.path}>{menu.title}</Link></span></Menu.Item>;
-						}
-					})
+						})
 					}
 				</Menu>
 			</div>	

@@ -28,17 +28,19 @@ const getLayoutRouter = (store) => {
 					/>);
 				})
 			}
+			<Redirect to="/login"/>
 		</Switch>
 	);
 };
 const getAllRoute = (store) => {
 	return (
 		<HashRouter>
-		<Switch>
-			<Route path="/login" component={Login} exact />
-			<Route path="/register" component={Register} exact />
-			<Layout />
-		</Switch>
+			<Switch>
+				<Route path="/login" component={Login} exact />
+				<Route path="/register" component={Register} exact />
+				<Layout />
+				<Redirect to="/login"/>
+			</Switch>
 		</HashRouter>
 	);
 };
